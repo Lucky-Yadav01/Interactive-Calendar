@@ -450,10 +450,6 @@ export function AppProvider({ children }) {
       return true
     }
 
-    if (!event.department) {
-      return true
-    }
-
     return event.department === user.department
   }
 
@@ -474,14 +470,6 @@ export function AppProvider({ children }) {
 
     if (notification.targetType === 'department') {
       return targets.includes(user.department)
-    }
-
-    if (notification.targetType === 'role') {
-      return targets.includes(user.role)
-    }
-
-    if (notification.targetType === 'user') {
-      return targets.includes(user.id)
     }
 
     return false

@@ -136,21 +136,23 @@ function CalendarView({
             </select>
           </div>
 
-          <div className="field">
-            <label htmlFor="filter-department">Department</label>
-            <select
-              id="filter-department"
-              value={selectedDepartment}
-              onChange={(event) => setSelectedDepartment(event.target.value)}
-            >
-              <option value="all">All departments</option>
-              {departments.map((department) => (
-                <option key={department.id} value={department.name}>
-                  {department.name}
-                </option>
-              ))}
-            </select>
-          </div>
+          {canManage && (
+            <div className="field">
+              <label htmlFor="filter-department">Department</label>
+              <select
+                id="filter-department"
+                value={selectedDepartment}
+                onChange={(event) => setSelectedDepartment(event.target.value)}
+              >
+                <option value="all">All departments</option>
+                {departments.map((department) => (
+                  <option key={department.id} value={department.name}>
+                    {department.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
         </div>
       </Card>
 
